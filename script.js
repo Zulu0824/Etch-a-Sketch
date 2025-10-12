@@ -19,3 +19,13 @@ const container2 = document. createElement("div");
 container2.id = "button-box";
 document.body.appendChild(container2);
 
+//Add buttons in container2
+
+const clearBtn = document.getElementById("clearBtn");
+const canvasBtn = document.getElementById("canvasBtn");
+const rbgBtn = document.getElementById("rgbBtn");
+
+container2.appendChild("clearBtn");
+container2.appendChild("canvasBtn");
+container2.appendChild("rgbBtn");
+
