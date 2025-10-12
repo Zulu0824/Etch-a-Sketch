@@ -11,3 +11,7 @@ container1.style.flexWrap = "Wrap";
 container1.style.width = canvasSize + "px";
 container1.style.height = canvasSize + "px";
 container1.style.border = "2px solid black";
+
+const container2 = document. createElement("div");
+container2.id = "button-box";
+document.body.appendChild(container2);
