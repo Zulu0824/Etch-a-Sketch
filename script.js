@@ -23,7 +23,7 @@ document.body.appendChild(container2);
 
 const clearBtn = document.getElementById("clearBtn");
 const canvasBtn = document.getElementById("canvasBtn");
-const rbgBtn = document.getElementById("rgbBtn");
+const rgbBtn = document.getElementById("rgbBtn");
 
 container2.appendChild(clearBtn);
 container2.appendChild(canvasBtn);
@@ -42,8 +42,17 @@ function buildGrid(rows, cols) {
         cell.style.backgroundColor = "white";
         cell.style.boxSizing = "border-box";
 
+        cell.addEventListener("mouseenter", () => {
+            cell.style.backgroundColor = "black";
+        });
         container1.appendChild(cell);
     }
 }
 
 buildGrid(rows, cols);
+
+clearBtn.addEventListener("click", () => {
+    document.querySelectorAll(".cell").forEach(c => {
+        c.style.backgroundColor = "white";
+    });
+});
