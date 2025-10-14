@@ -77,9 +77,7 @@ clearBtn.addEventListener("click", () => {
 //Adding interactivity to "Edit Grid" button.
 
 canvasBtn.addEventListener("click", () => {
-    const input = parseInt(
-        prompt("Enter the number of rows and columns (upto 100):", "16")  
-    );
+    const input = parseInt(prompt("Enter the number of rows and columns (upto 100):", "16"));
     if (!isNaN(input) && input > 1 && input < 100) {
         rows = input;
         cols = input;
@@ -95,3 +93,8 @@ rgbBtn.addEventListener("click", () => {
     rgbMode = !rgbMode;
     rgbBtn.textContent = rgbMode ? "Mode: RGB" : "Mode: Black"; 
 });
+
+const titleBox = document.createElement("div");
+titleBox.classList = "title-box"
+titleBox.textContent = "Etch-a-Sketch"
+document.body.insertBefore(titleBox, container1);

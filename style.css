@@ -6,6 +6,7 @@ body {
     margin: 0;
     justify-content: center;
     background-color: rgb(15, 157, 175);
+    gap: 100px;
 }
 
 button#clearBtn, #canvasBtn, #rgbBtn {
@@ -20,10 +21,22 @@ button#clearBtn, #canvasBtn, #rgbBtn {
 #button-box{
     display: flex;
     margin-top: 50px;
-    gap: 50px;
+    gap: 80px;
 }
 
 button#clearBtn:hover, #canvasBtn:hover, #rgbBtn:hover {
     background-color: rgba(163, 7, 202, 0.473);
     color: white;
+}
+
+.title-box {
+    margin-bottom: 100px;
+    font-size: 50px;
+    background-color: lightgrey;
+    padding: 20px 40px;
+    border: 3px black solid;
+    border-radius: 20px;
+    font-style: italic;
+    font-weight: bolder;
+    color: black;
 }
