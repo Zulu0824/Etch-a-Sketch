@@ -15,7 +15,7 @@ container1.style.height = canvasSize + "px";
 container1.style.border = "2px solid black";
 
 // Container2 holds all of our buttons. 
-const container2 = document. createElement("div");
+const container2 = document.createElement("div");
 container2.id = "button-box";
 document.body.appendChild(container2);
 
@@ -28,6 +28,15 @@ const rgbBtn = document.getElementById("rgbBtn");
 container2.appendChild(clearBtn);
 container2.appendChild(canvasBtn);
 container2.appendChild(rgbBtn);
+
+//Function to pick a random color when using RGB mode.
+
+function randomRGB() {
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const r = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
 //Function to build a grid.
 
@@ -45,7 +54,11 @@ function buildGrid(rows, cols) {
         cell.style.boxSizing = "border-box";
 
         cell.addEventListener("mouseenter", () => {
-            cell.style.backgroundColor = "black";
+            if (rgbMode) {
+                cell.style.backgroundColor = randomRGB();
+            } else {
+                cell.style.backgroundColor = "black";
+            }
         });
         container1.appendChild(cell);
     }
@@ -74,4 +87,11 @@ canvasBtn.addEventListener("click", () => {
     } else {
         alert("Please Enter a valid number between 2 and 100.")
     }
+});
+
+//Adding interactivity to "RGB" button.
+
+rgbBtn.addEventListener("click", () => {
+    rgbMode = !rgbMode;
+    rgbBtn.textContent = rgbMode ? "Mode: RGB" : "Mode: Black"; 
 });
