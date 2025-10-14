@@ -4,9 +4,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: rgb(15, 157, 175);
-    gap: 100px;
 }
 
 button#clearBtn, #canvasBtn, #rgbBtn {
@@ -20,8 +19,8 @@ button#clearBtn, #canvasBtn, #rgbBtn {
 
 #button-box{
     display: flex;
-    margin-top: 50px;
-    gap: 80px;
+    gap: 40px;
+    margin-bottom: 100px;
 }
 
 button#clearBtn:hover, #canvasBtn:hover, #rgbBtn:hover {
@@ -30,7 +29,6 @@ button#clearBtn:hover, #canvasBtn:hover, #rgbBtn:hover {
 }
 
 .title-box {
-    margin-bottom: 100px;
     font-size: 50px;
     background-color: lightgrey;
     padding: 20px 40px;

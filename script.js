@@ -1,6 +1,6 @@
 let rows = 16;
 let cols = rows;
-const canvasSize = 800;
+const canvasSize = 600;
 let rgbMode = false;
 
 const container1 = document.createElement("div");
@@ -53,13 +53,22 @@ function buildGrid(rows, cols) {
         cell.style.backgroundColor = "white";
         cell.style.boxSizing = "border-box";
 
+       cell.dataset.darkness = 0;
+
         cell.addEventListener("mouseenter", () => {
             if (rgbMode) {
-                cell.style.backgroundColor = randomRGB();
-            } else {
-                cell.style.backgroundColor = "black";
-            }
-        });
+            cell.style.backgroundColor = randomRGB();
+        } else {
+            let darkness = parseFloat(cell.dataset.darkness);
+            if (darkness < 1) {
+          darkness += 0.1;
+          cell.dataset.darkness = darkness;
+
+          const opacityValue = Math.floor(255 * (1 - darkness)); 
+          cell.style.backgroundColor = `rgb(${opacityValue}, ${opacityValue}, ${opacityValue})`;
+        }
+      }
+    });
         container1.appendChild(cell);
     }
 }
@@ -77,10 +86,10 @@ clearBtn.addEventListener("click", () => {
 //Adding interactivity to "Edit Grid" button.
 
 canvasBtn.addEventListener("click", () => {
-    const input = parseInt(prompt("Enter the number of rows and columns (upto 100):", "16"));
-    if (!isNaN(input) && input > 1 && input < 100) {
-        rows = input;
-        cols = input;
+    const userInput = parseInt(prompt("Enter the number of rows and columns (upto 100):", "16"));
+    if (!isNaN(userInput) && userInput > 1 && userInput < 100) {
+        rows = userInput;
+        cols = userInput;
         buildGrid(rows, cols);
     } else {
         alert("Please Enter a valid number between 2 and 100.")
@@ -93,6 +102,8 @@ rgbBtn.addEventListener("click", () => {
     rgbMode = !rgbMode;
     rgbBtn.textContent = rgbMode ? "Mode: RGB" : "Mode: Black"; 
 });
+
+//Add a box to put our title.
 
 const titleBox = document.createElement("div");
 titleBox.classList = "title-box"
