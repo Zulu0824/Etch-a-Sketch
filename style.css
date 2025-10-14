@@ -5,5 +5,25 @@ body {
     height: 100vh;
     margin: 0;
     justify-content: center;
-    background-color: rgb(81, 180, 142);
+    background-color: rgb(15, 157, 175);
+}
+
+button#clearBtn, #canvasBtn, #rgbBtn {
+    background-color: rgb(243, 210, 20);
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#button-box{
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+button#clearBtn:hover, #canvasBtn:hover, #rgbBtn:hover {
+    background-color: rgba(163, 7, 202, 0.473);
+    color: white;
 }

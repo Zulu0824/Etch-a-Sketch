@@ -6,7 +6,7 @@ let rgbMode = false;
 const container1 = document.createElement("div");
 document.body.appendChild(container1);
 
-// Container1 is our canvas for building and holding the grid
+// Container1 is our canvas for building and holding the grid.
 
 container1.style.display = "flex";
 container1.style.flexWrap = "wrap";
@@ -14,12 +14,12 @@ container1.style.width = canvasSize + "px";
 container1.style.height = canvasSize + "px";
 container1.style.border = "2px solid black";
 
-// Container2 holds all of our buttons 
+// Container2 holds all of our buttons. 
 const container2 = document. createElement("div");
 container2.id = "button-box";
 document.body.appendChild(container2);
 
-//Add buttons in container2
+//Add buttons in container2.
 
 const clearBtn = document.getElementById("clearBtn");
 const canvasBtn = document.getElementById("canvasBtn");
@@ -29,11 +29,13 @@ container2.appendChild(clearBtn);
 container2.appendChild(canvasBtn);
 container2.appendChild(rgbBtn);
 
+//Function to build a grid.
+
 function buildGrid(rows, cols) {
     container1.innerHTML="";
     const cellSize = canvasSize / cols;
 
-    for (let i = 0; i < rows *cols; i++) {
+    for (let i = 0; i < rows * cols; i++) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
         cell.style.width = cellSize + "px";
@@ -51,8 +53,25 @@ function buildGrid(rows, cols) {
 
 buildGrid(rows, cols);
 
+//Adding interactivity to "Clear" button.
+
 clearBtn.addEventListener("click", () => {
     document.querySelectorAll(".cell").forEach(c => {
         c.style.backgroundColor = "white";
     });
+});
+
+//Adding interactivity to "Edit Grid" button.
+
+canvasBtn.addEventListener("click", () => {
+    const input = parseInt(
+        prompt("Enter the number of rows and columns (upto 100):", "16")  
+    );
+    if (!isNaN(input) && input > 1 && input < 100) {
+        rows = input;
+        cols = input;
+        buildGrid(rows, cols);
+    } else {
+        alert("Please Enter a valid number between 2 and 100.")
+    }
 });
