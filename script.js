@@ -87,7 +87,7 @@ clearBtn.addEventListener("click", () => {
 
 canvasBtn.addEventListener("click", () => {
     const userInput = parseInt(prompt("Enter the number of rows and columns (upto 100):", "16"));
-    if (!isNaN(userInput) && userInput > 1 && userInput < 100) {
+    if (!isNaN(userInput) && userInput > 1 && userInput <= 100) {
         rows = userInput;
         cols = userInput;
         buildGrid(rows, cols);
